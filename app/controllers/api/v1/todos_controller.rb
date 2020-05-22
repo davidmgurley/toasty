@@ -14,7 +14,7 @@ module Api
                 if todo.save
                     render json: {status: 'SUCCESS', message: 'Saved Todo', data:todo}, status: :ok
                 else
-                    render json: {status: 'Error', message: 'Todo Not Saved', data:todo.errors}, status: :unprocessable_entry
+                    render json: {status: 'Error', message: 'Todo Not Saved', data:todo.errors}, status: :unprocessable_entity
                 end
 
             end
@@ -31,14 +31,14 @@ module Api
                 if todo.update_attributes(todo_params)
                     render json: {status: 'SUCCESS', message: 'Updated Todo', data:todo}, status: :ok
                 else 
-                    render json: {status: 'Error', message: 'Todo Not Updated', data:todo.errors}, status: :unprocessable_entry
+                    render json: {status: 'Error', message: 'Todo Not Updated', data:todo.errors}, status: :unprocessable_entity
 
                 end
             end
 
             private
             def todo_params
-                params.permit(:title, :description)
+                params.permit(:title, :description, :position)
             end
         end
     end
