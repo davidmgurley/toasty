@@ -2,7 +2,7 @@ module Api
     module V1
         class TodosController < ApplicationController
             def index
-                todos = Todo.order('created_at DESC');
+                todos = Todo.order('position DESC');
                 render json: {status: 'SUCCESS', message: 'Loaded Todo', data:todos}, status: :ok
             end
             def show
