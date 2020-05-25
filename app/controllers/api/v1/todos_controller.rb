@@ -38,7 +38,7 @@ module Api
 
             private
             def todo_params
-                params.permit(:title, :description, :position)
+                params.permit(:title, :description, :position, :completed)
             end
         end
     end
